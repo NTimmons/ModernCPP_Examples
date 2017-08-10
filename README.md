@@ -1,14 +1,16 @@
-
-
 A C++ implementation of the Modern C++ examples in AnthonyCalandra/modern-cpp-features (https://github.com/AnthonyCalandra/modern-cpp-features).
 
 This is to be a learning tool for people wanting to run and play with the new features in a compilable state.
 
 
-//TODO
+TODO
+=======
 Some sections are still missing for some new features in C++17 and some more thorough commenting to match the source examples.
 Unit tests could be added to use this all together for simple compliance testing.
 
+
+USAGE
+=======
 Current defines are:
 
 #define USE_CPP11
