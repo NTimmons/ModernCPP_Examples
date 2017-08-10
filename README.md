@@ -6,6 +6,9 @@ This is to be a learning tool for people wanting to run and play with the new fe
 TODO
 =======
 Some sections are still missing for some new features in C++17 and some more thorough commenting to match the source examples.
+
+Need to add random and chrono and new timer parts among other things.
+
 Unit tests could be added to use this all together for simple compliance testing.
 
 
