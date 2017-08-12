@@ -1,6 +1,8 @@
 #pragma once
 
 //#ifdef MSVC_NOT_SUPPORTED_ENABLED
+#include <memory>
+
 
 namespace Move_Example
 {

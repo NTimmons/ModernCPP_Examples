@@ -3,6 +3,11 @@
 //#ifdef MSVC_NOT_SUPPORTED_ENABLED
 #include <thread>
 #include <iostream>
+#include <chrono>
+#include <string>
+#include <iostream>
+
+using namespace std::chrono_literals;
 
 namespace Thread_Example
 {

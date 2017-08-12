@@ -5,6 +5,8 @@
 #include <future>
 #include <vector>
 #include <numeric>
+#include <chrono>
+using namespace std::chrono_literals;
 
 
 namespace Promise_Example

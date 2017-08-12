@@ -184,11 +184,29 @@
 #include "C++11/Library/MakeShared.h"
 //memory model
 #include "C++11/Library/MemoryModel.h"
+//thread
+#include "C++11/Library/Thread.h"
+//atomic
+#include "C++11/Library/Atomic.h"
+//mutex
+#include "C++11/Library/mutex.h"
+//Promise/Future
+#include "C++11/Library/future.h"
+//async
+#include "C++11/Library/async.h"
+//algorithm
+#include "C++11/Library/algorithm.h"
+//typeIndex
+#include "C++11/Library/typeIndex.h"
+//hash
+#include "C++11/Library/hash.h"
+//Random
+#include "C++11/Library/random.h"
 //-------------------------------------------------------//
 //-------------------------------------------------------//
 #endif
 
 int main()
 {
-
+	TypeIndex_Example::TypeIndex();
 }
