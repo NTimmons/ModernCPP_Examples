@@ -10,6 +10,11 @@
 
 namespace Atomic_Example
 {
+	//TODO
+	// std::memory_order
+ 
+
+
 	void SimpleFunction(std::_Atomic_int* _thisAtomic)
 	{
 		_thisAtomic->fetch_add(1, std::memory_order_relaxed);

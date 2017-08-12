@@ -9,12 +9,6 @@
 
 namespace Mutex_Example
 {
-	//todo
-	// std::condition_variable
-	// std::condition_variable_any
-	// std::notify_all_at_thread_exit
-	// std::cv_status
-
 	//Shared objects
 	int			g_simpleValue = 0;
 	std::mutex	g_mutexForSimpleValue; 
@@ -31,9 +25,10 @@ namespace Mutex_Example
 	int			g_uniqueTryLockValue0 = 0;
 
 	//Conditional Variable Example
-	std::mutex				g_conditionalVariableMutex;
-	std::condition_variable g_conditionalVariable;
-	bool					g_workerFinished = false;
+	std::mutex					g_conditionalVariableMutex;
+	std::condition_variable		g_conditionalVariable;
+	std::condition_variable_any g_conditionalVariable_Any;
+	bool						g_workerFinished = false;
 
 	//Forward decl.
 	void SimpleUniqueLockThread();
@@ -48,6 +43,8 @@ namespace Mutex_Example
 	void SimpleConditionalVariableThread_Notifier();
 	void ConditionalVariableEndThread_Main();
 	void ConditionalVariableEndThread_Notifier();
+	void ConditionalVariableAnyThread_Main();
+	void ConditionalVariableAnyThread_Notifier();
 
 	void Mutex()
 	{
@@ -124,6 +121,14 @@ namespace Mutex_Example
 		t14.join();
 		t15.join();
 		std::cout << "Finished Conditional Variable Notify at end example\n";
+
+		//11. std::condition_variable_any is the same as a condition variable but can work with locks other than
+		//	  unique_lock
+		std::thread t16(ConditionalVariableAnyThread_Main);
+		std::thread t17(ConditionalVariableAnyThread_Notifier);
+		t14.join();
+		t15.join();
+		std::cout << "Finished Conditional Variable Any at end example\n";
 	}
 
 	//Thread functions for the examples
@@ -249,6 +254,26 @@ namespace Mutex_Example
 		std::this_thread::sleep_for(10s);
 
 		g_workerFinished = true;
+	}
+
+	void ConditionalVariableAnyThread_Main()
+	{
+		g_conditionalVariableMutex.lock();
+		g_conditionalVariable_Any.wait(g_conditionalVariableMutex);
+		g_conditionalVariableMutex.unlock();
+		
+		std::cout << "Ending main CV thread as work is done.\n";
+	}
+
+	void ConditionalVariableAnyThread_Notifier()
+	{
+		g_workerFinished = false;
+		std::cout << "Starting work for CV threads.\n";
+		std::this_thread::sleep_for(10s);
+
+		std::lock_guard<std::mutex> lock(g_conditionalVariableMutex);
+		g_workerFinished = true;
+		g_conditionalVariable.notify_all();
 	}
 }
 
