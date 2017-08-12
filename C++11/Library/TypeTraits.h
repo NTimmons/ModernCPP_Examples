@@ -5,7 +5,7 @@
 namespace TypeTraits_Example
 {
 	//todo
-	//http://en.cppreference.com/w/cpp/header/type_traits
+	//many many functions.
 
 	void TypeTraits()
 	{
@@ -13,7 +13,6 @@ namespace TypeTraits_Example
 		static_assert(std::is_same<int, int>::value == 1);
 		static_assert(std::is_same<std::conditional<true, int, double>::type, int>::value == 1);
 	}
-
 }
 
 

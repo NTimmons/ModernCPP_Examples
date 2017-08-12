@@ -25,7 +25,6 @@ namespace Algorithm_Example
 		}
 	}
 
-
 	//Search functions
 	void Algorithm_Search()
 	{
@@ -61,27 +60,57 @@ namespace Algorithm_Example
 		}
 	}
 
+	//Partitioning operations
+	bool isEven(int _input)
+	{
+		return _input % 2 == 0;
+	}
+
 	void Algorithm_Partitioning()
 	{
-		//Partitioning operations
+		//Is Partitioned
+		std::vector<int> orderedSeries = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		bool partitioned = false;
+		partitioned = std::is_partitioned(orderedSeries.begin(), orderedSeries.end(), isEven) << ' ';
+		std::partition(orderedSeries.begin(), orderedSeries.end(), isEven);
+		partitioned = std::is_partitioned(orderedSeries.begin(), orderedSeries.end(), isEven) << ' ';
+
 		//partition_copy
+		std::vector<int> orderedArray0			= { 1,2,3,4,5,6,7,8,9,10 };
+		std::vector<int> PartitionTrueArray		= { 0 };
+		std::vector<int> PartitionFalseArray	= { 0 };
+
+		std::partition_copy(orderedArray0.begin(), orderedArray0.end(), std::begin(PartitionTrueArray), std::begin(PartitionFalseArray), isEven);
+
 		//partition_point
+		std::vector<int> orderedArray1 = { 1,2,3,4,5,6,7,8,9,10 };
+		std::partition(orderedArray1.begin(), orderedArray1.end(), isEven);
+		std::vector<int>::iterator partitionPosition = std::partition_point(orderedArray1.begin(), orderedArray1.end(), isEven);
 	}
 
+	//Sorting Operations
 	void Algorithm_SortingOperations()
 	{
-		//Sorting Operations
 		//is_sorted
+		std::vector<int> series = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		bool isSorted = std::is_sorted(series.begin(), series.end());
+
 		//is_sorted_until
+		std::vector<int> randomSeries = { 1, 2, 3, 4, 7, 8, 9, 10, 5, 6 };
+		std::vector<int>::iterator indexOfSortedUntil = std::is_sorted_until(randomSeries.begin(), randomSeries.end());
 	}
 
+	//Heap Operations
 	void Algorithm_HeapOperations()
 	{
-		// Heap Operations
 		//is_heap
+		std::vector<int> orderedSeries = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		bool isHeap = std::is_heap(orderedSeries.begin(), orderedSeries.end());
+		std::cout << "Is the vector heap: " << isHeap << "\n";
+		
 		//is_heap_until
+		std::vector<int>::iterator heapUntil = std::is_heap_until(orderedSeries.begin(), orderedSeries.end());
 	}
-
 
 	//Modifying sequence operations
 	void Algorithm_ModifyingSequenceOperations()
@@ -90,8 +119,6 @@ namespace Algorithm_Example
 		std::vector<int> mixedValueInput  = { 0,0,0,0,1,1,1,1 };
 		std::vector<int> mixedValueOutput = { 0,0,0,0,0,0,0,0 };
 		std::vector<int>::iterator foundValue = std::copy_if(mixedValueInput.begin(), mixedValueInput.end(), mixedValueOutput.begin(), IsEqualOne);
-		
-		//Ouput
 		for (auto i : mixedValueOutput)
 		{
 			std::cout << i;
@@ -101,7 +128,6 @@ namespace Algorithm_Example
 		//copy_n
 		std::string in = "1234567890";
 		std::string out;
-
 		std::copy_n(in.begin(), 4, std::back_inserter(out));
 		for (auto i : out)
 		{
@@ -145,9 +171,6 @@ namespace Algorithm_Example
 		std::vector<int> array3{ 1,1,1,2,1 };
 		isPermutation = std::is_permutation(array1.begin(), array1.end(), array3.begin()) << '\n';
 	}
-
-
 }
-
 
 //#endif
