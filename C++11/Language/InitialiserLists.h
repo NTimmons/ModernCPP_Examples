@@ -1,5 +1,6 @@
 #pragma once
 //#ifdef MSVC_NOT_SUPPORTED_ENABLED
+#include <initializer_list>
 
 namespace InitialiserLists_Example
 {
