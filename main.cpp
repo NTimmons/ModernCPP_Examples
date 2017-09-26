@@ -58,6 +58,19 @@
 #include "C++17/Library/Apply.h"
 //splicing for maps and sets
 #include "C++17/Library/MapSetSplicing.h"
+//search function
+#include "C++17/Library/Search.h"
+//Filesystem functions
+#include "C++17/Library/Filesystem.h"
+//Sampling functions
+#include "C++17/Library/Sampling.h"
+//StringConversion functions
+#include "C++17/Library/StringConversion.h"
+//Clamp functions
+#include "C++17/Library/Clamp.h"
+//CommonDenominators functions
+#include "C++17/Library/CommonDenominators.h"
+
 //-------------------------------------------------------//
 //-------------------------------------------------------//
 
@@ -208,5 +221,5 @@
 
 int main()
 {
-	TypeIndex_Example::TypeIndex();
+	CommonDenominators_Example::CommonDenominators();
 }

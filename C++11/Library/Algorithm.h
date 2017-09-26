@@ -71,9 +71,9 @@ namespace Algorithm_Example
 		//Is Partitioned
 		std::vector<int> orderedSeries = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		bool partitioned = false;
-		partitioned = std::is_partitioned(orderedSeries.begin(), orderedSeries.end(), isEven) << ' ';
+		partitioned = std::is_partitioned(orderedSeries.begin(), orderedSeries.end(), isEven);
 		std::partition(orderedSeries.begin(), orderedSeries.end(), isEven);
-		partitioned = std::is_partitioned(orderedSeries.begin(), orderedSeries.end(), isEven) << ' ';
+		partitioned = std::is_partitioned(orderedSeries.begin(), orderedSeries.end(), isEven);
 
 		//partition_copy
 		std::vector<int> orderedArray0			= { 1,2,3,4,5,6,7,8,9,10 };

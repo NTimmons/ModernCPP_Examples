@@ -26,7 +26,15 @@ namespace Invoke_Example
 
 	void Invoke()
 	{
+		//is_invocable replaces is_callable
+		static_assert(std::is_invocable<decltype(add), int,int>::value);
+		bool canWeCallInvokeWithTheseTypes = std::is_invocable<decltype(add), int, int>::value;
 
+		//Getting the resulting type of an invoked function
+		//Invoke result replaced result_of::type.
+		std::invoke_result<decltype(add)> ResultTypedVariable;
+
+		//Invoke class example
 		Proxy<decltype(add)> p{ add };
 		p(1, 2); // == 3
 	}
