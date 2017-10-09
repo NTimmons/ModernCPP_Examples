@@ -221,5 +221,5 @@
 
 int main()
 {
-	CommonDenominators_Example::CommonDenominators();
+//	CommonDenominators_Example::CommonDenominators();
 }
