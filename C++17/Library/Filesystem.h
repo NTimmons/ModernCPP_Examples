@@ -11,7 +11,9 @@ namespace Filesystem_Example
 		//http://www.bfilipek.com/2017/08/cpp17-details-filesystem.html
 		//Example based on this blog entry
 
-		std::experimental::filesystem::path pathToShow("C:\Windows\notepad.exe");
+		//TODO MORE THOROOUGH EXAMPLES
+
+		std::experimental::filesystem::path pathToShow("C:\\Windows\\notepad.exe");
 
 		std::cout	<< "exists() = "		<< std::experimental::filesystem::exists(pathToShow) << "\n"
 					<< "root_name() = "		<< pathToShow.root_name()		<< "\n"

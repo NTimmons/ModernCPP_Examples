@@ -32,6 +32,7 @@ namespace Invoke_Example
 
 		//Getting the resulting type of an invoked function
 		//Invoke result replaced result_of::type.
+		// Type of this object is the correct type for the return of the 'add' function
 		std::invoke_result<decltype(add)> ResultTypedVariable;
 
 		//Invoke class example

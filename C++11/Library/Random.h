@@ -41,34 +41,34 @@ namespace Random_Example
 		int randomResult6 = poissonDistribution(gen);
 
 		std::exponential_distribution<> exponentialDistribution(4);
-		int randomResult7 = exponentialDistribution(gen);
+		double randomResult7 = exponentialDistribution(gen);
 
 		std::gamma_distribution<> gammaDistribution(4);
-		float randomResult8 = gammaDistribution(gen);
+		double randomResult8 = gammaDistribution(gen);
 
 		std::weibull_distribution<> weibullDistribution(4);
-		float randomResult9 = weibullDistribution(gen);
+		double randomResult9 = weibullDistribution(gen);
 
 		std::extreme_value_distribution<> extremeValueDistribution(4);
-		float randomResult10 = extremeValueDistribution(gen);
+		double randomResult10 = extremeValueDistribution(gen);
 
 		std::normal_distribution<> normalDistribution(4);
-		float randomResult11 = normalDistribution(gen);
+		double randomResult11 = normalDistribution(gen);
 
 		std::lognormal_distribution<> lognormalDistribution(4);
-		float randomResult12 = lognormalDistribution(gen);
+		double randomResult12 = lognormalDistribution(gen);
 
 		std::extreme_value_distribution<> chiSquaredDistribution(4);
-		float randomResult13 = chiSquaredDistribution(gen);
+		double randomResult13 = chiSquaredDistribution(gen);
 
 		std::extreme_value_distribution<> cauchyDistribution(4);
-		float randomResult14 = cauchyDistribution(gen);
+		double randomResult14 = cauchyDistribution(gen);
 
 		std::extreme_value_distribution<> fisherFDistribution(4);
-		float randomResult15 = fisherFDistribution(gen);
+		double randomResult15 = fisherFDistribution(gen);
 
 		std::extreme_value_distribution<> studentTDistribution(4);
-		float randomResult16 = studentTDistribution(gen);
+		double randomResult16 = studentTDistribution(gen);
 
 		std::discrete_distribution<> discreteDistribution(1,4);
 		int randomResult17 = discreteDistribution(gen);
@@ -76,10 +76,10 @@ namespace Random_Example
 		std::vector<double> piecewise_i{ 0,  1, 5, 10 };
 		std::vector<double> piecewise_w{ 1,  0,  1 };
 		std::piecewise_constant_distribution<> piecewiseConstantDistribution(piecewise_i.begin(), piecewise_i.end(), piecewise_w.begin());
-		float randomResult18 = piecewiseConstantDistribution(gen);
+		double randomResult18 = piecewiseConstantDistribution(gen);
 
 		std::piecewise_linear_distribution<> piecewiseLinearDistribution(piecewise_i.begin(), piecewise_i.end(), piecewise_w.begin());
-		float randomResult19 = piecewiseLinearDistribution(gen);
+		double randomResult19 = piecewiseLinearDistribution(gen);
 		
 		//Simpler random without class object
 		double randomResult20 = std::generate_canonical<double, 10>(gen);
