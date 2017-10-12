@@ -1,4 +1,5 @@
 A C++ implementation of the Modern C++ examples in AnthonyCalandra/modern-cpp-features (https://github.com/AnthonyCalandra/modern-cpp-features).
+And Library and language features with examples taken and partly modified from cppreference.com
 
 This is to be a learning tool for people wanting to run and play with the new features in a compilable state.
 
@@ -21,14 +22,12 @@ Current defines are:
 #define USE_CPP17
 #define MSVC_NOT_SUPPORTED_ENABLED
 
-To enable the features from each version and enable and disable the features currently not supported through VS2017.
+To enable the features from each versions. Also to enable and disable the features currently not supported through VS2017.
 
 
 LICENSE
 =======
 The MIT License (MIT)
-
-Copyright (c) 2016 Anthony Calandra
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
