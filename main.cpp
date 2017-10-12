@@ -37,6 +37,8 @@
 #include "C++17/Language/UTF8CharacterLiterals.h"
 //direct - list - initialization of enums
 #include "C++17/Language/InitialisationOfEnums.h"
+//Execution Policy Examples
+#include "C++17/Language/ExecutionPolicy.h"
 //-------------------------------------------------------//
 //-------------------------------------------------------//
 
@@ -221,5 +223,7 @@
 
 int main()
 {
+	Optional_Example::Optional();
+
 //	CommonDenominators_Example::CommonDenominators();
 }
