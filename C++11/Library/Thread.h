@@ -65,7 +65,7 @@ namespace Thread_Example
 		}
 		else
 		{
-			std::cout << "Canont join function JoinableTest_0\n";
+			std::cout << "Cannot join function JoinableTest_0\n";
 		}
 
 		//4. Simple thread which yields its priority and then waits for 10 seconds before it can return. It will wait at the join.
@@ -85,7 +85,7 @@ namespace Thread_Example
 		}
 		else
 		{
-			std::cout << "Canont join function JoinableTest_1\n";
+			std::cout << "Cannot join function JoinableTest_1\n";
 		}
 	}
 }

@@ -58,16 +58,16 @@ namespace Random_Example
 		std::lognormal_distribution<> lognormalDistribution(4);
 		double randomResult12 = lognormalDistribution(gen);
 
-		std::extreme_value_distribution<> chiSquaredDistribution(4);
+		std::chi_squared_distribution<> chiSquaredDistribution(4);
 		double randomResult13 = chiSquaredDistribution(gen);
 
-		std::extreme_value_distribution<> cauchyDistribution(4);
+		std::cauchy_distribution<> cauchyDistribution(4);
 		double randomResult14 = cauchyDistribution(gen);
 
-		std::extreme_value_distribution<> fisherFDistribution(4);
+		std::fisher_f_distribution<> fisherFDistribution(4);
 		double randomResult15 = fisherFDistribution(gen);
 
-		std::extreme_value_distribution<> studentTDistribution(4);
+		std::student_t_distribution<> studentTDistribution(4);
 		double randomResult16 = studentTDistribution(gen);
 
 		std::discrete_distribution<> discreteDistribution(1,4);
