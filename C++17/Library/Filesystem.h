@@ -30,21 +30,22 @@ namespace Filesystem_Example
 		
 		//std::directory_entry
 		std::experimental::filesystem::directory_entry someDirectory("C:\\Windows\\");
+		std::experimental::filesystem::directory_entry thisRelativeDirectory(".\\");
 
 		//std::directory_iterator
-		std::experimental::filesystem::directory_iterator dir_iter(someDirectory);
+		std::experimental::filesystem::directory_iterator dir_iter(thisRelativeDirectory);
 		for (auto& p : dir_iter)
 			std::cout << p << '\n';
 		
 		//std::recursive_directory_iterator
-		std::experimental::filesystem::recursive_directory_iterator dir_rev_iter(someDirectory);
+		std::experimental::filesystem::recursive_directory_iterator dir_rev_iter(thisRelativeDirectory);
 		for (auto& p : dir_rev_iter)
 			std::cout << p << '\n';
 
-		//std::file_status
+		//std::file_status | std::status
 		std::experimental::filesystem::file_status file_status_obj = std::experimental::filesystem::status(someFilePath);
 
-		//std::space_info
+		//std::space_info | std::space
 		std::experimental::filesystem::space_info cSpace = std::experimental::filesystem::space("C:\\");
 
 		std::cout	<< ".        Capacity       Free      Available\n"
@@ -52,6 +53,7 @@ namespace Filesystem_Example
 					<< cSpace.free	<< "   "			<< cSpace.available << '\n';
 
 		//std::file_type 
+		std::experimental::filesystem::file_type ft = file_status_obj.type();
 
 		//std::file_time_type
 		std::experimental::filesystem::file_time_type ftime = std::experimental::filesystem::last_write_time(someFilePath);
@@ -78,7 +80,9 @@ namespace Filesystem_Example
 		std::experimental::filesystem::path absPath = std::experimental::filesystem::absolute(relPath);
 		bool isAbs = absPath.is_absolute();
 		bool isRelative = absPath.is_relative();
-		bool isPathSame = std::experimental::filesystem::equivalent(relPath, absPath);
+
+		// The result of absolute path is not absolute... so this crashes...
+		//bool isPathSame = std::experimental::filesystem::equivalent(relPath, absPath);
 
 		//std::canonical | std::weakly_canonical
 		std::experimental::filesystem::path cannonicalPath = std::experimental::filesystem::canonical(relPath);
@@ -97,12 +101,13 @@ namespace Filesystem_Example
 		std::experimental::filesystem::path relativePath = std::experimental::filesystem::proximate(somePath);
 		#endif
 
-		//std::copy
+		//std::remove | std::copy | std::copy_file
 		std::experimental::filesystem::copy(someFilePath, ".\\notepad.exe", std::experimental::filesystem::copy_options::overwrite_existing);
-			//copy_options::recursive is also useful for but trick to demo
+		bool removed = std::experimental::filesystem::remove(".\\notepad.exe");
+			//copy_options::recursive is also useful for but tricky to demo without some certain data...
 
-		//std::copy_file
 		std::experimental::filesystem::copy_file(someFilePath, ".\\notepad.exe", std::experimental::filesystem::copy_options::overwrite_existing);
+		removed = std::experimental::filesystem::remove(".\\notepad.exe");
 
 		//std::copy_symlink
 		//TODO
@@ -123,13 +128,14 @@ namespace Filesystem_Example
 
 		//std::current_path
 		std::experimental::filesystem::path thisLocation = std::experimental::filesystem::current_path();
-		std::cout << "Current directory = " << thisLocation.c_str() << "\n";
+		std::cout << "Current directory = " << thisLocation.string() << "\n";
 		std::experimental::filesystem::current_path(someDirectory);
 		std::experimental::filesystem::path newLocLocation = std::experimental::filesystem::current_path();
-		std::cout << "Changed working directory to = " << newLocLocation.c_str() << "\n";
+		std::cout << "Changed working directory to = " << newLocLocation.string() << "\n"
+			;
 		std::experimental::filesystem::current_path(thisLocation);
-		std::experimental::filesystem::path thisLocation = std::experimental::filesystem::current_path();
-		std::cout << "Reset working directory to = " << newLocLocation.c_str() << "\n";
+		thisLocation = std::experimental::filesystem::current_path();
+		std::cout << "Reset working directory to = " << thisLocation.string() << "\n";
 
 		//std::exists
 		bool doesFileExist = std::experimental::filesystem::exists(someFilePath);
@@ -143,31 +149,47 @@ namespace Filesystem_Example
 		//std::read_symlink
 		//TODO
 
-		//std::remove
-		//std::remove_all
-		//std::rename
-		//std::resize_file
-		//std::space
-		//std::status
-		//std::status_known
-		//std::symlink_status
-		//std::temp_directory_path
-		//std::is_block_file
-		//std::is_character_file
-		//std::is_directory
-		//std::is_empty
-		//std::is_fifo
-		//std::is_other
-		//std::is_regular_file
-		//std::is_socket
-		//std::is_symlink
+		// std::remove_all | std::temp_directory_path
+		std::experimental::filesystem::path dir = std::experimental::filesystem::temp_directory_path();
+		std::experimental::filesystem::create_directories( "newDirTest/example");
+		std::uintmax_t n = std::experimental::filesystem::remove_all("newDirTest");
+		std::cout << "Deleted " << n << " files\n";
 
-		//TODO
-		// - Directory
-		// - Create/Delete files
-		// - File information
-		// - file flags
-		// - file/folder linkage
+		//std::rename
+		std::experimental::filesystem::copy(someFilePath, ".\\notepad.exe", std::experimental::filesystem::copy_options::overwrite_existing);
+		std::experimental::filesystem::rename(".\\notepad.exe", ".\\notepad_rename.exe");
+		bool removed_renamed = std::experimental::filesystem::remove(".\\notepad_rename.exe");
+
+		//std::resize_file
+		std::experimental::filesystem::copy(someFilePath, ".\\notepad.exe", std::experimental::filesystem::copy_options::overwrite_existing);
+		std::experimental::filesystem::resize_file(".\\notepad.exe", 1024); //size in bytes
+		bool removed_resized = std::experimental::filesystem::remove(".\\notepad.exe");
+
+		//std::status_known
+		bool isit = std::experimental::filesystem::status_known(file_status_obj);
+		//std::is_block_file
+		isit = std::experimental::filesystem::is_block_file(someFilePath);
+		//std::is_character_file
+		isit = std::experimental::filesystem::is_character_file(someFilePath);
+		//std::is_directory
+		isit = std::experimental::filesystem::is_directory(someFilePath);
+		//std::is_empty
+		isit = std::experimental::filesystem::is_empty(someFilePath);
+		//std::is_fifo
+		isit = std::experimental::filesystem::is_fifo(someFilePath);
+		//std::is_other
+		isit = std::experimental::filesystem::is_other(someFilePath);
+		//std::is_regular_file
+		isit = std::experimental::filesystem::is_regular_file(someFilePath);
+		//std::is_socket
+		isit = std::experimental::filesystem::is_socket(someFilePath);
+		//std::is_symlink
+		isit = std::experimental::filesystem::is_symlink(someFilePath);
+
+
+		//TODO 
+		// Member variables for path
+		// other general member variables.
 	}
 }
 
