@@ -1,9 +1,9 @@
 #pragma once
 
-#ifdef MSVC_NOT_SUPPORTED_ENABLED
+//#ifdef MSVC_NOT_SUPPORTED_ENABLED
 
 #include <utility>
-
+#include <iostream>
 namespace StructuredBindings_Example
 {
 	using Coordinate = std::pair<int, int>;
@@ -20,4 +20,4 @@ namespace StructuredBindings_Example
 	}
 }
 
-#endif
+//#endif

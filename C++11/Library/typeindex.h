@@ -12,7 +12,7 @@ namespace TypeIndex_Example
 	{
 		std::type_index intTypeIndex(typeid(int));
 
-		//Outputs int
+		//Outputs 'int'
 		std::cout << intTypeIndex.name() << "\n";
 	}
 }

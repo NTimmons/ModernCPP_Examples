@@ -20,7 +20,7 @@ namespace TemplateArgumentDeduction_Example
 	{
 
 		MyContainer c1{ 1 }; // OK MyContainer<int>
-		MyContainer c2; // OK MyContainer<float>
+		MyContainer c2(); // OK MyContainer<float>
 	}
 }
 

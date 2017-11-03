@@ -11,11 +11,8 @@ namespace Filesystem_Example
 	{
 		//http://www.bfilipek.com/2017/08/cpp17-details-filesystem.html
 		//Example based on this blog entry
-
-		//TODO MORE THOROOUGH EXAMPLES
-
 		std::experimental::filesystem::path pathToShow("C:\\Windows\\notepad.exe");
-
+		//Useful filesystem::path member functions
 		std::cout	<< "exists() = "		<< std::experimental::filesystem::exists(pathToShow) << "\n"
 					<< "root_name() = "		<< pathToShow.root_name()		<< "\n"
 					<< "root_path() = "		<< pathToShow.root_path()		<< "\n"
@@ -66,11 +63,11 @@ namespace Filesystem_Example
 		std::experimental::filesystem::permissions(somePath, std::experimental::filesystem::perms::owner_all | 
 															 std::experimental::filesystem::perms::group_all, 
 															 std::experimental::filesystem::perm_options::add);
-		#endif
-		
 		//std::directory_options
 			//Not used or fully defined in MSVC
-			//std::experimental::filesystem::directory_options::follow_directory_symlink
+			std::experimental::filesystem::directory_options::follow_directory_symlink
+
+		#endif
 
 		//std::file_time_type | std::last_write_time
 		std::experimental::filesystem::file_time_type fileTime = std::experimental::filesystem::last_write_time(someFilePath);

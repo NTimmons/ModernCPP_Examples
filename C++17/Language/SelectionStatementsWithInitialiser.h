@@ -1,9 +1,12 @@
 #pragma once
 
-#ifdef MSVC_NOT_SUPPORTED_ENABLED
+//#ifdef MSVC_NOT_SUPPORTED_ENABLED
+
+#include <iostream>
 
 namespace SelectionStatementsWithInitialiser_Example
 {
+	//http://en.cppreference.com
 
 	enum cases
 	{
@@ -52,4 +55,4 @@ namespace SelectionStatementsWithInitialiser_Example
 
 }
 
-#endif
+//#endif

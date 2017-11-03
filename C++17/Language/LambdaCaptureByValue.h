@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef NOT_SUPPORTED_ENABLED
+//#ifdef NOT_SUPPORTED_ENABLED
 
 namespace LambdaCaptureByValue_Example
 {
@@ -28,4 +28,4 @@ namespace LambdaCaptureByValue_Example
 	}
 }
 
-#endif
+//#endif

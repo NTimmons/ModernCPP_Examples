@@ -2,6 +2,8 @@
 
 //#ifdef MSVC_NOT_SUPPORTED_ENABLED
 
+#include <iostream>
+
 namespace NestedNamespaces_Example
 {
 
@@ -25,7 +27,7 @@ namespace NestedNamespaces_Example
 
 	void NestedNamespaces()
 	{
-
+		std::cout << A::B::C::i << "\n";
 	}
 
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include <type_traits>
 
-#ifdef MSVC_NOT_SUPPORTED_ENABLED
+//#ifdef MSVC_NOT_SUPPORTED_ENABLED
 namespace ConstExprIf_Example
 {
 	template <typename T>
@@ -27,4 +27,4 @@ namespace ConstExprIf_Example
 	}
 }
 
-#endif
+//#endif
